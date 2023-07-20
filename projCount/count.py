@@ -17,7 +17,13 @@ def main(page: ft.Page):
     
     
     def calculate(width, height, resWidth, resHeight):
-        pass
+        if len.resWidth == 0:
+            result.value = 'olaola'
+            page.update()
+        elif len.resHeight == 0:
+            result = str(int(height) * int(resWidth) / int(width))
+            page.update()
+
     
     
     
@@ -55,7 +61,7 @@ def main(page: ft.Page):
         ft.Row(
             [
                 ft.ElevatedButton(text="Clear"),
-                ft.ElevatedButton(text="Calculate"),
+                ft.ElevatedButton(text="Calculate", on_click=calculate),
 
             ],
             alignment=ft.MainAxisAlignment.CENTER
