@@ -15,7 +15,6 @@ def main(page: ft.Page):
     result = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
 
     
-    
     def calculate(width, height, resWidth, resHeight):
         if len.resWidth == 0:
             result.value = 'olaola'
@@ -23,9 +22,10 @@ def main(page: ft.Page):
         elif len.resHeight == 0:
             result = str(int(height) * int(resWidth) / int(width))
             page.update()
-
+        return result
     
     
+    page.add(result)
     
     
     page.add(
