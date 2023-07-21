@@ -15,11 +15,15 @@ def main(page: ft.Page):
     result = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
 
     
-    
-    def calculate(width, height, resWidth, resHeight, result):
-        result = str(int(width))
-    
-    
+    def calculate(width, height, resWidth, resHeight):
+        if len.resWidth == 0:
+            result.value = 'olaola'
+            page.update()
+        elif len.resHeight == 0:
+            result = str(int(height) * int(resWidth) / int(width))
+            page.update()
+        return result
+
     
     page.add(
         ft.Row(
@@ -54,7 +58,7 @@ def main(page: ft.Page):
         ft.Row(
             [
                 ft.ElevatedButton(text="Clear"),
-                ft.ElevatedButton(text="Calculate"),
+                ft.ElevatedButton(text="Calculate", on_click=calculate),
 
             ],
             alignment=ft.MainAxisAlignment.CENTER
