@@ -16,9 +16,8 @@ def main(page: ft.Page):
 
     
     
-    def calculate(width, height, resWidth, resHeight):
-        pass
-    
+    def calculate(width, height, resWidth, resHeight, result):
+        result = str(int(width))
     
     
     
