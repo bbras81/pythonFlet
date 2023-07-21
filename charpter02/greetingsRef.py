@@ -33,7 +33,7 @@ def main(page: ft.Page):
     )
     
 ft.app(target=main)
-
+ 
 '''
 NOTE:
 1) All the flex control have a property know as ref
