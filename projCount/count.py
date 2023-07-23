@@ -6,24 +6,34 @@ def main(page: ft.Page):
 
  
     
-    width = ft.TextField(value="" , text_align=ft.TextAlign.RIGHT, width=100)
+    width = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
     height = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
     
     resWidth = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
     resHeight = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
+    viwer = ft.Row()
     
-    result = ft.TextField(value="", text_align=ft.TextAlign.RIGHT, width=100)
-
+    def clear_text(e):
+        width.value=""
+        height.value=""
+        resHeight.value=""
+        resWidth.value=""
+        viwer.clean()
+        page.update()
+        
     
-    def calculate(width, height, resWidth, resHeight):
-        if len.resWidth == 0:
-            result.value = 'olaola'
+    
+    def calculate(e):
+        if resHeight.value == "":
+            result = str(int(height.value) * int(resWidth.value) / int(width.value))
+            viwer.controls.append(ft.Text(f"Result: {result}", text_align=ft.TextAlign.CENTER))
             page.update()
-        elif len.resHeight == 0:
-            result = str(int(height) * int(resWidth) / int(width))
+            
+        elif resWidth.value == "":
+            result = str(int(width.value) * int(resHeight.value) / int(height.value))
+            viwer.controls.append(ft.Text(f"Result: {result}"))
             page.update()
-        return result
-
+            
     
     page.add(
         ft.Row(
@@ -57,19 +67,13 @@ def main(page: ft.Page):
         ),
         ft.Row(
             [
-                ft.ElevatedButton(text="Clear"),
+                ft.ElevatedButton(text="Clear", on_click= clear_text),
                 ft.ElevatedButton(text="Calculate", on_click=calculate),
 
             ],
             alignment=ft.MainAxisAlignment.CENTER
         ),
-        ft.Row(
-            [
-                ft.Text("Result", size=22),
-                result,
-            ], 
-            alignment=ft.MainAxisAlignment.CENTER
-        )
+        viwer
     )
 
 ft.app(target=main)
