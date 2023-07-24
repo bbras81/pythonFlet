@@ -51,9 +51,6 @@ def main(page: ft.Page):
     line_06 = ft.Text(value="", font_family="SourceCode", color="#1aff1a")
     line_07 = ft.Text(value="", font_family="SourceCodeBold", color="#ffff00")
     line_08 = ft.Text(value="", font_family="SourceCode", color="#ffffff")
-    progressBar_03 = ft.ProgressBar(width=400, color="#0080ff", bgcolor="#eeeeee", opacity=0)
-    progress_text_03 = ft.Text(" ", font_family="SourceCodePro-BlackItalic", opacity=0)
-    progress_row_03 = ft.Row([progressBar_03, progress_text_03])
     terminal_text = ft.Column([line_01, line_02, line_03, line_04, line_05, line_06, line_07, line_08])
     
   # terminal container
@@ -68,8 +65,23 @@ def main(page: ft.Page):
     )
     
     def animate_getSpeedContainer(e):
-        getSpeedContainer.update()
+        progress_row_01.opacity = 0
+        progressBar_01.opacity = 0
+        progressBar_01.value = None
+        progress_row_02.opacity = 0
+        progressBar_02.opacity = 0
+        progressBar_02.value = None
         
+        line_01.value = ""
+        line_02.value = ""
+        line_03.value = ""
+        line_04.value = ""
+        line_05.value = ""
+        line_06.value = ""
+        line_07.value = ""
+        line_08.value = ""
+        
+        getSpeedContainer.update()
         getSpeedContainer.width = 700
         getSpeedContainer.height = 400
         line_01.value = "> calculating download speed, please wait."
