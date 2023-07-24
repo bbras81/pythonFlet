@@ -24,7 +24,6 @@ def main(page: ft.Page):
         "SourceCodeBold" : "fonts/SourceCodePro-Bold.ttf"
     }
     
-    # initializing the speedtest variable
     st = speedtest.Speedtest()
 
 
