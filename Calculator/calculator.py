@@ -25,7 +25,7 @@ def main(page: ft.Page):
             controls=[
                 ft.ElevatedButton(text="1", on_click=add_number, data="1"),
                 ft.ElevatedButton(text="2", on_click=add_number, data="2"),
-                ft.ElevatedButton(text="3", on_click=add_number)
+                ft.ElevatedButton(text="3", on_click=add_number, data="3")
             ],
             alignment="center"
         ),
